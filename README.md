@@ -58,8 +58,8 @@ To run this Streamlit application locally, follow these steps:
 
 1.  **Clone the repository**:
     ```bash
-    git clone <YOUR_GITHUB_REPO_LINK>
-    cd project-folder
+    git clone https://github.com/sai-bits/Heart-Disease-Prediction.git
+    cd Heart-Disease-Prediction
     ```
 
 2.  **Create a virtual environment (optional but recommended)**:
@@ -78,10 +78,4 @@ To run this Streamlit application locally, follow these steps:
     streamlit run app.py
     ```
     The application will open in your default web browser.
-
-## App Deployment Link
-[Link to Deployed Streamlit App](<YOUR_STREAMLIT_APP_LINK_HERE>)
-
-## Screenshot
-[Include a screenshot of your assignment execution on BITS Virtual Lab here]
 
