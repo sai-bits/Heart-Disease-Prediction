@@ -118,6 +118,7 @@ def preprocess_user_input(df_input):
     # Impute categorical columns with the mode
     for column in categorical_cols:
         if df_input[column].isnull().any():
+            # Use .iloc[0] to handle cases where there might be multiple modes
             df_input[column] = df_input[column].fillna(df_input[column].mode()[0])
 
     # 3. One-hot encode categorical features
@@ -242,9 +243,18 @@ if st.button('Predict Heart Disease Level'):
     except Exception as e:
         st.error(f"An error occurred during prediction: {e}")
 
-# --- Model Evaluation Metrics Section (Placeholder) ---
+# --- Model Evaluation Metrics Section ---
 st.subheader('Model Evaluation Metrics (from training)')
-st.info("Detailed evaluation metrics for the selected model (Accuracy, AUC, Precision, Recall, F1, MCC) would typically be displayed here based on its performance on the test set during training. For this demo, please refer to the `README.md` for a comparison table.")
+st.markdown("""
+| Model                  | Accuracy | AUC Score | Precision | Recall  | F1 Score | MCC Score |
+|:-----------------------|:---------|:----------|:----------|:--------|:---------|:----------|
+| Logistic Regression    | 0.5815   | 0.7994    | 0.5523    | 0.5815  | 0.5615   | 0.3781    |
+| Decision Tree          | 0.5054   | 0.6309    | 0.5174    | 0.5054  | 0.5107   | 0.2923    |
+| K-Nearest Neighbor     | 0.5761   | 0.7081    | 0.5218    | 0.5761  | 0.5458   | 0.3612    |
+| Naive Bayes            | 0.3043   | 0.7192    | 0.7016    | 0.3043  | 0.3371   | 0.2819    |
+| Random Forest          | 0.5652   | 0.8112    | 0.5201    | 0.5652  | 0.5410   | 0.3487    |
+| XGBoost                | 0.6087   | 0.7995    | 0.6017    | 0.6087  | 0.6033   | 0.4273    |
+""")
 
 # --- Optional: Add a section for more info or visualizations ---
 st.markdown("\n--- ")
