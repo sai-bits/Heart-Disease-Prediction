@@ -37,21 +37,24 @@ Six different classification models were implemented and evaluated on the prepro
 
 | Model                  | Accuracy | AUC Score | Precision | Recall  | F1 Score | MCC Score |
 |:-----------------------|:---------|:----------|:----------|:--------|:---------|:----------|
-| Logistic Regression    | 0.5815   | 0.7994    | 0.5523    | 0.5815  | 0.5615   | 0.3781    |
-| Decision Tree          | 0.5054   | 0.6309    | 0.5174    | 0.5054  | 0.5107   | 0.2923    |
-| K-Nearest Neighbor     | 0.5761   | 0.7081    | 0.5218    | 0.5761  | 0.5458   | 0.3612    |
-| Naive Bayes            | 0.3043   | 0.7192    | 0.7016    | 0.3043  | 0.3371   | 0.2819    |
-| Random Forest          | 0.5652   | 0.8112    | 0.5201    | 0.5652  | 0.5410   | 0.3487    |
-| XGBoost                | 0.6087   | 0.7995    | 0.6017    | 0.6087  | 0.6033   | 0.4273    |
+| **Logistic Regression**| **0.9737**| **0.9974**| **0.9722**| **0.9859**| **0.9790**| **0.9439**|
+| **Naive Bayes**        | 0.9649   | 0.9974    | 0.9589    | 0.9859  | 0.9722   | 0.9253    |
+| **Random Forest**      | 0.9649   | 0.9953    | 0.9589    | 0.9859  | 0.9722   | 0.9253    |
+| **XGBoost**            | 0.9561   | 0.9908    | 0.9583    | 0.9718  | 0.9650   | 0.9064    |
+| **K-Nearest Neighbor** | 0.9474   | 0.9820    | 0.9577    | 0.9577  | 0.9577   | 0.8880    |
+| **Decision Tree**      | 0.9474   | 0.9440    | 0.9577    | 0.9577  | 0.9577   | 0.8880    |
 
 ### Observations on Model Performance:
-- **XGBoost** generally performs best across most metrics, showing the highest Accuracy, Precision, F1 Score, and MCC Score. Its AUC score is also very competitive.
-- **Random Forest** has the highest AUC Score, indicating good discrimination ability, but its other metrics are slightly lower than XGBoost.
-- **Logistic Regression** shows solid performance, especially in AUC, suggesting it captures linear relationships well even for multi-class problems.
-- **K-Nearest Neighbor** and **Decision Tree** have moderate performance, with Decision Tree being the lowest performer in most metrics, possibly due to overfitting or lack of fine-tuning.
-- **Naive Bayes** stands out with a surprisingly high Precision but very low Accuracy and Recall, suggesting it might be predicting only one class with high confidence while missing others. This often indicates a poor fit for the data distribution after scaling.
 
-Overall, **XGBoost** appears to be the most robust model for this specific heart disease prediction task among the ones evaluated.
+| Index | ML Model Name | Observation about model performance |
+|:---:|:---|:---|
+| 0 | **Logistic Regression** | Achieved the highest accuracy, F1-score, and MCC among all models. It showed excellent class separation, stable performance, and fast convergence, making it a strong baseline for the dataset. |
+| 1 | **Decision Tree** | Showed lower accuracy compared to other models due to overfitting on training data. Performance dropped on test data, indicating sensitivity to data variations and depth settings. |
+| 2 | **kNN** | Performed well with high recall and F1-score by capturing local data patterns. However, performance depends strongly on feature scaling and choice of k value. |
+| 3 | **Naive Bayes** | Delivered balanced performance with good recall and precision. Assumption of feature independence limits its ability to model complex relationships, but it remains computationally efficient. |
+| 4 | **Random Forest** | Improved performance over a single decision tree by reducing overfitting through ensemble learning. Provided strong accuracy and robustness at moderate computational cost. |
+| 5 | **XGBoost** | Achieved excellent AUC and F1-score by effectively learning complex feature interactions. As a boosting-based ensemble, it provided high predictive power but required more training time. |
+
 
 ## How to run locally
 To run this Streamlit application locally, follow these steps:
